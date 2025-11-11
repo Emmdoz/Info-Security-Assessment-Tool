@@ -1,0 +1,34 @@
+{
+  "scoring_method": "basic",          
+  "weighting": {
+    "basic": {
+      "enabled": true
+    },
+    "group": {
+      "enabled": true,
+      "alpha": 0.7,
+      "groups": {
+        "encryption": ["TLS_Score", "Cipher_Score", "KeyExchange_Score"],
+        "authentication": ["Signature_Score", "CertValidity_Score", "Issuer_Score"]
+      }
+    },
+    "individual": {
+      "enabled": true,
+      "individual_weights": {
+        "TLS_Score": 2.0,
+        "Cipher_Score": 2.0,
+        "KeyExchange_Score": 4.0,
+        "Signature_Score": 4.0,
+        "CertValidity_Score": 1.0,
+        "Issuer_Score": 2.0
+      }
+    }
+  },
+  "rounding": {
+    "equal_bins": true
+  },
+  "scoring_scale": {
+    "min_per_component": 1,
+    "max_per_component": 5
+  }
+}
